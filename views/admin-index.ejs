@@ -1,0 +1,46 @@
+<%- include('./partials/admin-header.ejs') %>
+    <style>
+        #admin-dashboard {
+            background-color: rgba(233, 68, 233, 0.342);
+        }
+    </style>
+
+    <body>
+        
+        <%- include('./partials/admin-navbar.ejs') %>
+            <section class="dashboard-container">
+                <div class="stat-block-1 stats">
+                    <h1>PRODUCTS</h1>
+                    <div class="data">
+                        <%- noProduct %>
+                    </div>
+                </div>
+                <div class="stat-block-2 stats">
+                    <h1>BEATS</h1>
+                    <div class="data">
+                        <%- noBeat %>
+                    </div>
+                </div>
+                <div class="stat-block-3 stats">
+                    <h1>USERS</h1>
+                    <div class="data">
+                        <%- noSiteUsers %>
+                    </div>
+                </div>
+                <div class="stat-block-4 stats">
+                    <h1>PAYMENTS</h1>
+                    <div class="data">
+                        <%- noShopOrder %>
+                    </div>
+                </div>
+                <div class="stat-block-5 stats" id="sum">
+                    <h1>EARNING</h1>
+                    <div class="data">
+                        $<%- sumAmount %>
+                    </div>
+                </div>
+                
+            </section>
+    </body>
+
+    </html>

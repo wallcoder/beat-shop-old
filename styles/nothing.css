@@ -1,0 +1,14 @@
+.nothing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;height: 100vh;
+
+}
+
+.nothing h1{
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgb(109, 109, 109);
+    
+}

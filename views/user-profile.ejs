@@ -1,0 +1,34 @@
+<%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="about.css">
+    <style>
+        h3{
+            font-weight: 300;
+            margin: 2px;
+        }
+        a{
+            font-size: 0.9rem;
+            margin: 2px;
+            color: #bdbdbd;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+
+            <section class="about-container">
+                <h1>User Profile</h1>
+                <img src="usrpp2.jpg" alt=""
+                    class="about-pp">
+                <h3>Username: <%= usr.username %></h3>
+                <h3>Email: <%= usr.email_address %></h3>
+                <h3><a href="/user-settings">Account Settings</a></h3>
+               
+            </section>
+
+            <%- include('./partials/footer.ejs') %>
+
+    </body>
+
+    </html>

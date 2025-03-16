@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.dashboard-container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+
+    /* flex-wrap: wrap; */
+
+
+}
+
+.stats {
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    width: 280px;
+    height: 280px;
+
+}
+
+.stats:hover {
+    filter: brightness(1.1);
+
+}
+
+.dashboard-container .stat-block-1 {
+
+    background-color: rgba(223, 62, 62, 0.555);
+
+}
+
+.dashboard-container .stats h1 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+
+.dashboard-container .stats .data {
+    font-size: 10rem;
+    text-align: center;
+
+}
+
+
+.dashboard-container .stat-block-2 {
+
+    background-color: rgba(228, 231, 44, 0.555);
+
+}
+
+.dashboard-container .stat-block-3 {
+
+    background-color: rgba(225, 44, 231, 0.555);
+
+}
+
+.dashboard-container .stat-block-4 {
+
+    background-color: rgba(44, 231, 175, 0.555);
+
+}
+
+.dashboard-container .stat-block-5 {
+
+    background-color: rgba(199, 199, 199, 0.555);
+
+}
+
+.dashboard-container .stat-block-5 h1 {
+    font-size: 1.9rem;
+}

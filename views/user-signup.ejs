@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beats by downphase <%-pageTitle%></title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+    <section class="signup-container">
+        <div class="sign-up">
+            <h1>Create Account</h1>
+            <form action="/user-signup-request" method="post">
+                <label for="username">Username</label>
+                <input type="text" name="signupUsername" id="username" placeholder="Enter Username"
+                    value="<%-value.userName%>" required>
+                <p><%-error.userName%></p>
+
+                <label for="signup-email">Email</label>
+                <input type="email" name="signupEmail" id="signup-email" placeholder="Enter Email"
+                    value="<%-value.email%>" required>
+                <p><%-error.email%></p>
+
+                <label for="signup-password">Password</label>
+                <input type="password" name="signupPassword" id="signup-paassword" placeholder="Enter Password"
+                    value="<%-value.password%>" required>
+                <p><%-error.password%></p>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" name="signupConfirmPassword" id="confirm-password" placeholder="Confirm Password"
+                    value="<%-value.confirmPassword %>" required>
+                <p><%-error.confirmPassword%></p>
+                <a href="user-login">already have an account? Login</a>
+                <button>Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+
+</html>

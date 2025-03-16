@@ -1,0 +1,433 @@
+<%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+            <section class="intro-container">
+                <!-- <div>
+                    <h1>welcome.</h1>
+                    <h1>welcome.</h1>
+                    <h1>welcome.</h1>
+                </div> -->
+
+
+
+            </section>
+
+            <section class="beats-container" id="container-beats">
+                <div class="beat-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="beat-image"></th>
+                                <th class="beat-title">TITLE</th>
+                                <th class="beat-time">TIME</th>
+                                <th class="beat-bpm">BPM</th>
+                                <th class="beat-price">PRICE($)</th>
+                                <!-- <th class="beat-tags">TAGS</th> -->
+                                <th class="beat-download"></th>
+                                <!-- <th class="beat-share"></th> -->
+                                <th class="beat-buy"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% beats.forEach(beat=> {%>
+                                <tr data-audio="<%-beat.content_path %>" data-id="<%-beat.id%>">
+
+                                    <td class="beat-image play-beat" data-id="<%-beat.id%>"><img src="<%- beat.img_path %>" alt=""></td>
+                                    <td class="beat-title play-beat" data-id="<%-beat.id%>">
+                                        <%= beat.name %>
+                                            
+                                    </td>
+                                    <td class="beat-time play-beat" data-id="<%-beat.id%>">
+                                        <%= beat.duration%>
+                                    </td>
+                                    <td class="beat-bpm play-beat" data-id="<%-beat.id%>">
+                                        <%= beat.bpm %>
+
+                                    </td>
+                                    <td class="beat-price play-beat" data-id="<%-beat.id%>">
+                                        <%= beat.price %>
+                                    </td>
+
+                                    <!-- <td class="beat-tags"><span>chill</span></td> -->
+                                    <td class="beat-download beat-btn"><a href="<%- beat.content_path %>" download
+                                            class="fa-solid fa-download"></a>
+                                    </td>
+                                    <!-- <td class="beat-share beat-btn"><a href="" class="fa-solid fa-share-nodes"></a> -->
+                                    </td>
+                                    <td class="beat-buy beat-btn">
+                                    <td class="beat-buy beat-btn">
+                                        <button class="fa-solid fa-cart-plus" id="cart-btn"
+                                            onclick="addToCart(<%- beat.product_id %>)"></button>
+                                    </td>
+
+                                    </td>
+
+                                </tr>
+
+                                <% }); %>
+
+
+
+                        </tbody>
+
+                    </table>
+                    <div class="btn-container">
+                        <button class="browse-beat-btn">BROWSE MORE BEATS</button>
+                    </div>
+                </div>
+
+            </section>
+            <section class="download-beat">
+                
+            </section>
+            <section class="license-container">
+                <h2>Deals Info</h2>
+                <div class="license">
+
+                    <div class="license-content">
+                        <h3>Basic</h3>
+                        <h1>FREE</h1>
+
+                        <ul>
+                            <li>The Tagged version of beats are free to download</li>
+                            <li>They can be shared on platforms like YouTube and SoundCloud.</li>
+                            <li>Commercial use and content ID registration are prohibited.</li>
+                        </ul>
+                        <button>
+                            TAGGED
+                        </button>
+                    </div>
+                    <div class="license-content">
+                        <h3>Popular</h3>
+                        <h1>$30</h1>
+                        <p></p>
+                        <ul>
+                            <li>Untagged wav file (min. 24bit uncompressed)</li>
+                            <li> Unlimited monetized Streams</li>
+                            <li>Unlimited non-monetized Streams</li>
+                            <li>Unlimited broadcasting rights or for-profit performances</li>
+                        </ul>
+                        <button>
+                            NON-EXCLUSIVE
+                        </button>
+                    </div>
+                    <div class="license-content">
+                        <h3>Special</h3>
+                        <h1>$70</h1>
+                        
+                        <ul>
+                            <li>Exclusive rights to the instrumental</li>
+                            <li>Untagged wav file (min. 24bit uncompressed)</li>
+                            <li>Unlimited monetized Streams</li>
+                            <li> Unlimited non-monetized Streams</li>
+                            <li>Unlimited broadcasting rights or for-profit performances</li>
+                        </ul>
+                        <button>
+                           EXCLUSIVE
+                        </button>
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <section class="deals-container">
+                <div class="pack">
+                    <a href="#">
+                        <img src="https://i0.wp.com/beastsamples.com/wp-content/uploads/2021/03/Psychedelic-Guitar-Sample-pack.png?resize=800%2C800&ssl=1"
+                            alt="pack">
+                        <h2>sample pack</h2>
+                        <h2>FREE</h2>
+                    </a>
+
+
+                </div>
+            </section>
+
+
+
+            <section class="email-sub-container">
+                <div class="form-container">
+                    <h2>Get notified on discounts</h2>
+
+                    <form action="/subscribe-email" method="post" >
+                        <input class="normal" type="text" name="subName" id="fname" placeholder="FULL NAME" required>
+                        <input class="normal" type="email" name="subEmail" id="email" placeholder="EMAIL" required>
+                        <div>
+                            <input type="checkbox" name="subConfirm" id="sub-confirm" required>
+                            <label for="sub-confirm">
+                                Check this box to confirm that you would like to receive emails from me.
+                            </label>
+                        </div>
+                        <button id="sub-button">SUBSCRIBE NOW</button>
+
+                    </form>
+                </div>
+
+            </section>
+
+            <link rel="stylesheet" href="music-player.css" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+
+
+
+
+
+            <section class="music-player">
+                <!--===============Player Image================= -->
+                <div class="player_nav">
+                    <div class="player_img">
+                        <img src="img-1.jpeg" id="cover" class="active" />
+                    </div>
+                    <div class="music-description">
+                        <h2 id="music_title">Capital Letters</h2>
+                        <h3 id="musric_artist">Lorem, ipsum dolor.</h3>
+                    </div>
+
+                </div>
+
+
+
+                <!--==============Player Progress & Timmer -->
+                <div class="player_progress" id="player_progress">
+                    <div class="progress" id="progress">
+                        <div class="music_duration">
+                            <span id="current_time">0:00</span>
+                            <span id="duration">0:00</span>
+                        </div>
+                    </div>
+                </div>
+                <!--==============Player Controllers -->
+                <div class="player_controls">
+                    <i class="fa-solid fa-backward controls" title="Previous" id="prev"></i>
+                    <i class="fa-solid fa-play play-button controls" title="Play" id="play"></i>
+                    <i class="fa-solid fa-forward controls" title="Next" id="next"></i>
+                </div>
+            </section>
+
+
+            <script src="/music-player.js"></script>
+
+
+            <%- include('./partials/footer.ejs') %>
+
+                <script>
+                    const beatsContainer = document.querySelector('.beats-container');
+                    const licenseContainer = document.querySelector('.license-container');
+                    const dealsContainer = document.querySelector('.deals-container');
+                    window.addEventListener('scroll', () => {
+                        beatsContainer.classList.toggle('change-bg-color-1', window.scrollY > 250);
+                        dealsContainer.classList.toggle('change-bg-color-1', window.scrollY > 250);
+                        dealsContainer.classList.toggle('change-bg-color-2', window.scrollY > 1200);
+                    });
+
+                    // const emailForm = document.querySelector('#email-sub-form');
+                    // emailForm.addEventListener('submit', function (event) {
+                    //     event.preventDefault();
+                    // });
+
+                    const imgEl = document.getElementById("bg_img");
+                    const imgCoverEl = document.getElementById("cover");
+                    const musicTitleEl = document.getElementById("music_title");
+                    const musicArtistEl = document.getElementById("musric_artist");
+                    const playerProgressEl = document.getElementById("player_progress");
+                    const progressEl = document.getElementById("progress");
+                    const currentTimeEl = document.getElementById("current_time");
+                    const durationEl = document.getElementById("duration");
+                    const prevBtnEl = document.getElementById("prev");
+                    const playvBtnEl = document.getElementById("play");
+                    const nextvBtnEl = document.getElementById("next");
+
+                    // Render the beats data as JSON and assign it to a JavaScript variable
+                    var beatsData = <%- JSON.stringify(beats) %>;
+                    console.log(beatsData)
+
+
+                    // Now you can access the beatsData variable in your client-side JavaScript code
+
+
+
+                    // const songs = [
+                    //     {
+                    //         path: "1.mp3",
+                    //         displayName: "Sugar & Brownies",
+                    //         cover: "img-1.jpeg",
+                    //         artist: "DHARIA",
+                    //     },
+                    //     {
+                    //         path: "2.mp3",
+                    //         displayName: "Alone, Pt. II",
+                    //         cover: "img-2.jpeg",
+                    //         artist: "Alan Walker & Ava Max",
+                    //     },
+                    //     {
+                    //         path: "3.mp3",
+                    //         displayName: "Let Me Love You ft",
+                    //         cover: "img-3.jpeg",
+                    //         artist: "Justin Bieber",
+                    //     },
+                    //     {
+                    //         path: "4.mp3",
+                    //         displayName: "On The Floor ft",
+                    //         cover: "img-4.jpeg",
+                    //         artist: "Jennifer Lopez",
+                    //     },
+                    // ];
+
+                    const songs = beatsData;
+
+                    const music = new Audio();
+                    let musicIndex = 0;
+                    let isPlaying = false;
+
+                    function togglePlay() {
+                        if (isPlaying) {
+                            pauseMusic();
+                        } else {
+                            playMusic();
+                        }
+                    }
+
+                    function playMusic() {
+                        isPlaying = true;
+                        playvBtnEl.classList.replace("fa-play", "fa-pause");
+                        playvBtnEl.setAttribute("title", "pause");
+                        music.play();
+                    }
+
+                    function pauseMusic() {
+                        isPlaying = false;
+                        playvBtnEl.classList.replace("fa-pause", "fa-play");
+                        playvBtnEl.setAttribute("title", "play");
+                        music.pause();
+                    }
+
+                    function loadMusic(songs) {
+                        music.src = songs.content_path;
+                        musicTitleEl.textContent = songs.name;
+                        musicArtistEl.textContent = songs.artist;
+                        imgCoverEl.src = songs.img_path;
+                        // imgEl.src = songs.img_path;
+                    }
+
+                    const rows = document.querySelectorAll('.beats-container tbody tr .play-beat');
+
+                    rows.forEach(row => {
+                        row.addEventListener('click', () => {
+                            console.log('Row clicked');
+
+                            const beatId = row.dataset.id;
+                            console.log('Beat ID:', beatId);
+
+                            songs.forEach((song) => {
+                                console.log(song.id);
+                            })
+
+                            const matchedIndex = songs.findIndex(song => song.id == beatId);
+
+                            console.log('Matched Index:', matchedIndex);
+
+                            if (matchedIndex !== -1) {
+                                loadMusic(songs[matchedIndex]);
+                                playMusic();
+                            } else {
+                                console.log('Song not found in the songs array.');
+                            }
+                        });
+                    });
+
+                    function changeMusic(direction) {
+                        musicIndex = (musicIndex + direction + songs.length) % songs.length;
+                        loadMusic(songs[musicIndex]);
+                        playMusic();
+                    }
+
+                    function setProgressBar(e) {
+                        const width = playerProgressEl.clientWidth;
+                        const xValue = e.offsetX;
+                        music.currentTime = (xValue / width) * music.duration;
+                    }
+
+                    function updateProgressBar() {
+                        const { duration, currentTime } = music;
+                        const progressPercent = (currentTime / duration) * 100;
+                        progressEl.style.width = `${progressPercent}%`;
+                        const formatTime = (timeRanges) =>
+                            String(Math.floor(timeRanges)).padStart(2, "0");
+                        durationEl.textContent = `${formatTime(duration / 60)}:${formatTime(duration % 60)}`;
+                        currentTimeEl.textContent = `${formatTime(currentTime / 60)}:${formatTime(currentTime % 60)}`;
+                    }
+
+                    const btnEvents = () => {
+                        playvBtnEl.addEventListener("click", togglePlay);
+                        nextvBtnEl.addEventListener("click", () => changeMusic(1));
+                        prevBtnEl.addEventListener("click", () => changeMusic(-1));
+                        music.addEventListener("ended", () => changeMusic(1));
+                        music.addEventListener("timeupdate", updateProgressBar);
+                        playerProgressEl.addEventListener("click", setProgressBar);
+                    };
+
+                    document.addEventListener("DOMContentLoaded", btnEvents);
+
+                    loadMusic(songs[musicIndex]);
+
+                    console.log(beatsData);
+                    const musicPlayer = document.querySelector('.music-player');
+
+                    rows.forEach(row => {
+                        row.addEventListener('click', () => {
+                            console.log('Row clicked');
+
+                            musicPlayer.classList.add('clicked');
+                        });
+                    });
+
+
+                    function addToCart(beatId) {
+                        // Send a POST request to the server to add the beat to the cart
+                        alert('Item added to cart');
+                        fetch('/add-to-cart', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ beatId: beatId })
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    
+                                    console.log('Beat added to cart successfully');
+                                } else {
+                                    
+                                    console.error('Error adding beat to cart');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                    }
+                </script>
+
+
+
+
+
+
+
+
+
+                </script>
+
+
+
+
+    </body>
+
+
+    </html>
