@@ -1,0 +1,47 @@
+<%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="user-settings.css">
+
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+
+            <section class="user-settings-container">
+                <div class="forms">
+                    <form action="edit-info" class="change-info" method="post">
+                        <label for="username">Change Username</label>
+                        <input type="text" name="username" id="username" value="<%= userDetails.username %>">
+
+                        <label for="email">Change Email</label>
+                        <input type="text" name="email" id="email" value="<%= userDetails.email_address %>">
+
+
+
+                        <button>Save</button>
+
+                    </form>
+
+                    <form action="/route/edit-password" class="change-password" method="post">
+
+
+
+
+                        <label for="newPassword">New Password</label>
+                        <input type="password" name="newPassword" id="newPassword">
+
+                        <label for="conPassword">Confirm Password</label>
+                        <input type="password" name="conPassword" id="conPassword">
+
+                        <button>Save Password</button>
+
+
+
+
+
+                    </form>
+                </div>
+            </section>
+
+            <%- include('./partials/footer.ejs') %>
+
+    </body>
+
+    </html>

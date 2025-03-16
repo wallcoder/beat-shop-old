@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #7c7c7c;
+
+    transition: 0.2s all linear;
+
+
+
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #171618;
+    overflow-x: hidden;
+    height: 100vh;
+
+
+}
+
+.error-container{
+    text-align: center;
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+h2{
+    font-weight: 300;
+    
+}

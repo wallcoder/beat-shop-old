@@ -1,0 +1,117 @@
+<section class="navbar">
+    <div class="logo">
+        <a href="/"><img src="logo.png" alt="logo"></a>
+    </div>
+    <div class="dropdown-menu nav dropdown-menu-not-logged-in" id="">
+        <a href="/#container-beats">BEATS</a>
+        <!-- <a href="more-info">MORE INFO</a> -->
+        <a href="contact">CONTACT</a>
+        <a href="about">ABOUT</a>
+        <a href="free-beats">FREE CONTENTS</a>
+        <a href="shopping-cart" class="extra-btns"><i class="fa-solid fa-cart-shopping"></i><span>CART</span></a>
+        <a href="user-signup">SIGN UP</a>
+        <a href="user-login">LOGIN</a>
+        <a href="admin-login" class="extra-btns" target="_blank"><i class="fa-solid fa-lock"></i><span>ADMIN</span></a>
+        
+    </div>
+    <div class="dropdown-menu nav dropdown-menu-logged-in" id="">
+        <a href="/#container-beats">BEATS</a>
+        <!-- <a href="more-info">MORE INFO</a> -->
+        <a href="contact">CONTACT</a>
+        <a href="about">ABOUT</a>
+        <a href="free-beats">FREE CONTENTS</a>
+        <a href="shopping-cart" class="extra-btns"><i class="fa-solid fa-cart-shopping"></i><span>CART</span></a>
+        <a href="/user-profile">PROFILE</a>
+        <a href="/route/logout">LOGOUT</a>
+        <a href="admin-login" class="extra-btns" target="_blank"><i class="fa-solid fa-lock"></i><span>ADMIN</span></a>
+        
+    </div>
+    <div class="nav-btns nav">
+        <a href="/#container-beats" class="nav-btn">BEATS</a>
+        <!-- <a href="more-info" class="nav-btn">MORE INFO</a> -->
+        <a href="contact" class="nav-btn">CONTACT</a>
+        <a href="about" class="nav-btn">ABOUT</a>
+        <a href="free-beats" class="nav-btn">FREE CONTENTS</a>
+
+        <!-- <a href="#">Admin only</a> -->
+    </div>
+
+    <ul class="nav-extra nav nav-extras login-nav" id="nav-extra-nav">
+        <li><a href="shopping-cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        <li><a href="admin-login" target="_blank"><i class="fa-solid fa-lock"></i></a></li>
+        <li>
+            <a href="#" id="user-nav"><i class="fa-solid fa-user"></i></a>
+            <!-- <%- locals.user ? locals.user : "User" %> -->
+            <ul id="user-dropdown">
+                <li><a href="/user-profile">Profile</a></li>
+                <li><a href="/user-settings">Settings</a></li>
+                <li><a href="/route/logout">Logout</a></li>
+            </ul>
+        </li>
+        <li id="logouthide"><a href="/route/logout" id="logout">LOGOUT</a></li>
+    </ul>
+
+    <div class="nav-extra-2 nav nav-extras">
+        <a href="user-signup">SIGN UP</a>
+        <a href="user-login">LOGIN</a>
+        <a href="admin-login" id="admin-login" target="_blank"><i class="fa-solid fa-lock"></i></a>
+
+
+
+    </div>
+    <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleIcon = document.querySelector('.toggle_btn i');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const navbar = document.querySelector('.navbar');
+        const navBtns = document.querySelectorAll(".nav-btn");
+        const loginNavExtra1 = document.querySelector('.nav-extra');
+        const loginNavExtra2 = document.querySelector('.nav-extra-2');
+        const login = "<%-login%>"; // Ensure login variable holds the boolean value
+        const logoutBtn = document.querySelector('#logout')
+
+        const loginNav = document.querySelector('ul#nav-extra-nav');
+
+        const dropdownMenuNotLoggedIn = document.querySelector('.dropdown-menu-not-logged-in');
+        const dropdownMenuLoggedIn = document.querySelector('.dropdown-menu-logged-in');
+
+        logoutBtn.addEventListener('scroll', () => {
+            logoutBtn.classList.toggle('btn-scroll', window.scrollY > 0);
+        });
+
+        toggleBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('open');
+            toggleIcon.classList.toggle('fa-xmark');
+            toggleIcon.classList.toggle('fa-bars');
+            dropdownMenuLoggedIn.classList.toggle('open');
+        });
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('sticky', window.scrollY > 0);
+            dropdownMenu.classList.toggle('sticky', window.scrollY > 0);
+            navBtns.forEach((btn) => {
+                btn.classList.toggle('btn-scroll', window.scrollY > 0);
+            });
+        });
+
+        if (login === "true") {
+            loginNavExtra1.classList.add('test');
+            loginNavExtra2.classList.add('test2');
+            loginNav.classList.add('loggedin');
+            dropdownMenuNotLoggedIn.classList.add('toggled');
+            dropdownMenuLoggedIn.classList.add('toggled')
+        } else {
+            loginNavExtra1.classList.remove('test');
+            loginNavExtra2.classList.remove('test2');
+            loginNav.classList.remove('loggedin');
+            dropdownMenuNotLoggedIn.classList.remove('toggled');
+            dropdownMenuLoggedIn.classList.remove('toggled')
+        }
+    </script>
+
+
+</section>

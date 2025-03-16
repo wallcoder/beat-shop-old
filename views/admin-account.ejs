@@ -1,0 +1,53 @@
+<%- include('./partials/admin-header.ejs') %>
+    <style>
+        #admin-account {
+            background-color: rgba(233, 68, 233, 0.342);
+        }
+    </style>
+
+
+    <link rel="stylesheet" href="admin-beats.css">
+    <style>
+        .content-container{
+            width: 40%;
+            min-width: 300px;
+        }
+
+        form{
+            min-width: 260px;
+        }
+        
+    </style>
+
+    <body>
+        <%- include('./partials/admin-navbar.ejs') %>
+            <section class="content-container">
+                <form action="/edit-admin-info"  method="post">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" value="<%- adminDetails.username %>">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="<%- adminDetails.email %>">
+
+                    <button>Save</button>
+                </form>
+                
+                    <form action="/edit-admin-password"  method="post">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" name="newPassword" id="newPassword">
+    
+                        <label for="conPassword">Confirm Password</label>
+                        <input type="password" name="conPassword" id="conPassword">
+    
+                        <button>Save</button>
+                    </form>
+                    
+                
+                
+                
+            </section>
+            
+
+    </body>
+
+    </html>

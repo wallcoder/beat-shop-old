@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="contact.css">
+
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+
+            <section class="contact-container">
+                <h1>Contact</h1>
+                <form action="/send-message" method="post">
+                    <div>
+
+                        <input type="text" name="contactName" id="contact-name" placeholder="Enter Name" required>
+                        <input type="text" name="contactEmail" id="contact-email" placeholder="Enter email" required>
+                    </div>
+                    <input type="text" name="contactSubj" id="contact-subj" placeholder="Enter Subject" required>
+                    <input type="text" name="contactMsg" id="contact-msg" placeholder="Write message" required>
+                    <button>SEND</button>
+                </form>
+            </section>
+
+            <%- include('./partials/footer.ejs') %>
+
+    </body>
+
+    </html>

@@ -1,0 +1,62 @@
+<%- include('./partials/admin-header.ejs') %>
+    <style>
+        #admin-customers {
+            background-color: rgba(233, 68, 233, 0.342);
+        }
+    </style>
+
+
+    <link rel="stylesheet" href="admin-beats.css">
+
+    <body>
+        <%- include('./partials/admin-navbar.ejs') %>
+            <section class="content-container">
+                <!-- <form action="/upload-beat" class="file-upload" method="post" enctype="multipart/form-data" >
+                    <label for="beat-name">Beat Name</label>
+                    <input type="text" name="beatName" id="beat-name" placeholder="Enter beat name" required>
+                    <label for="beat-name">BPM</label>
+                    <input type="text" name="beatBpm" id="beat-bpm" placeholder="Enter BPM" required>
+                    <label for="beat-name">Beat Image</label>
+                    <input type="file" name="beatImage" id="beat-image" required>
+                    <label for="beat-name">Beat File(Free Version)</label>
+                    <input type="file" name="beatUpload" id="beat-upload" required>
+                    <label for="beat-name">Beat File(Paid Version)</label>
+                    <input type="file" name="beatUploadNotFree" id="beat-upload-not-free" required>
+                    <label for="beat-name">Beat Price($)</label>
+                    <input type="number" name="beatPrice" id="beat-price" placeholder="Enter Price" required>
+                    <button type="submit">Upload</button>
+                </form> -->
+                <div class="table-container">
+                    <table class="beat-table">
+                        <thead>
+                            <tr>
+                                
+                                
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Customer ID</th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% customers.forEach(customer=> { %>
+                                <tr>
+                                    
+                                    
+                                    <td><%- customer.username %></td>
+                                    <td><%- customer.email_address %></td>
+                                    <td><%- customer.id %></td>
+                                    
+                                    
+                                    
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+    </body>
+
+    </html>

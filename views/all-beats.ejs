@@ -1,0 +1,66 @@
+<%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="about.css">
+
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+
+            <section class="beats-container">
+                <div class="beat-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="beat-image"></th>
+                                <th class="beat-title">TITLE</th>
+                                <th class="beat-time">TIME</th>
+                                <th class="beat-bpm">BPM</th>
+                                <th class="beat-tags">TAGS</th>
+                                <th class="beat-download"></th>
+                                <th class="beat-share"></th>
+                                <th class="beat-buy"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% beats.forEach(beat=> {%>
+                                <tr>
+
+                                    <td class="beat-image"><img
+                                            src="https://i.pinimg.com/564x/42/0a/eb/420aebda1cf182f55fa040b259da44a1.jpg"
+                                            alt=""></td>
+                                    <td class="beat-title">
+                                        <%= beat.beat_title %>
+                                    </td>
+                                    <td class="beat-time">
+                                        <%= beat.beat_time%>
+                                    </td>
+                                    <td class="beat-bpm">
+                                        <%= beat.beat_bpm %>
+                                    </td>
+                                    <td class="beat-tags"><span>chill</span></td>
+                                    <td class="beat-download beat-btn"><a href="" class="fa-solid fa-download"></a>
+                                    </td>
+                                    <td class="beat-share beat-btn"><a href="" class="fa-solid fa-share-nodes"></a>
+                                    </td>
+                                    <td class="beat-buy beat-btn"><a href="" class="fa-solid fa-cart-plus"></a></td>
+
+                                </tr>
+
+                                <% }); %>
+
+
+
+                        </tbody>
+
+                    </table>
+                    <div class="btn-container">
+                        <button class="browse-beat-btn">BROWSE MORE BEATS</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <%- include('./partials/footer.ejs') %>
+
+    </body>
+
+    </html>

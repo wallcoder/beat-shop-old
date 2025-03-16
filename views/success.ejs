@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Page</title>
+    <link rel="stylesheet" href="success.css"> <!-- Link to the CSS file -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Payment Successful</h1>
+        <p>Thank you for shopping.</p>
+        <p>Check your email for the download link.</p>
+        <p>Here are your beats</p>
+        <p><a href="/">Continue Shopping</a></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% console.log("AAAA", productDetails) %>
+                <% productDetails.forEach(productDetail => { %>
+                    <% productDetail.forEach(product => { %>
+                        <tr>
+                            <td><img src=" <%= product.img_path %>" alt=""></td>
+                            <td><%= product.name %></td>
+                            <td><a href="<%= product.paid_content_path %>" download  >Download</a></td>
+                        </tr>
+                        
+                    <%  }); %>
+                    
+                <%  }); %>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>
